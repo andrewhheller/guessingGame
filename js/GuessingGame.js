@@ -71,7 +71,7 @@ function shuffle(array) {
     return array;
   }
 
-let shuffledArray = shuffle([20, 50, 70]);
+// let shuffledArray = shuffle([20, 50, 70]);
 // console.log(shuffledArray);
 
 
@@ -79,7 +79,6 @@ let shuffledArray = shuffle([20, 50, 70]);
 // ---------------------------------------------
 // SECTION #3:  game constructor funtion
 // ---------------------------------------------
-
 
 /* 
 
@@ -92,7 +91,6 @@ pastGuesses [array]:  holds all of the player's past guesses
 winningNumber property, which calls generateWinningNumber
 
 */
-
 
 function Game() {
     this.playersGuess = null;
@@ -157,8 +155,8 @@ Game.prototype.playersGuessSubmission = function(num) {
 
     // check for invalid num arg entries and throw error as noted below
     if(num <= 0 || num > 100 || isNaN(num)) {
-        throw "That is an invalid guess.";
-        // return 'invalid number';
+        // throw "That is an invalid guess.";
+        return 'invalid number';
     }
 
     // set value of num arg to playersGuess
@@ -369,11 +367,10 @@ Game.prototype.provideHint = function() {
 // executes jQuery code once document is load (DOM is ready)
 $(document).ready(function() {
 
-
     // create new game instance after document has loaded / ready
     let game = new Game();
 
-    console.log(game.winningNumber);
+    // console.log(game.winningNumber);
 
     // callback function: to be used either when #submit is clicked or enter is pressed on #player-input
     let submitGuess = function() {
@@ -390,13 +387,17 @@ $(document).ready(function() {
         // pass guess to playres guess submission method and log returned string result
         let output = game.playersGuessSubmission(guess);
 
+        // console.log(output);
+
         if(output === 'You have already guessed that number.') {
+            $("#main-title").css('color', 'red');
             $("#main-title").text("You have already guessed that number.");
         }
 
-        // else if(output === 'invalid number') {
-        //     $("#main-title").text("Please enter a number from 1 to 100.").css('color', 'red');
-        // }
+        else if(output === 'invalid number') {
+            $("#main-title").css('color', 'red');
+            $("#main-title").text("Invalid entry. Please enter a number.")
+        }
 
         else if(output !== "You have already guessed that number.") {
 
@@ -421,8 +422,12 @@ $(document).ready(function() {
 
             }
 
+            // $("#guess-list li:nth-child(" + game.pastGuesses.length + ")").text(guess);
+
             // if player wins...
             if(output === 'You Win!') {
+
+                $("#main-title").css('color', 'green');
 
                 // change main title text display to you win
                 $("#main-title").text("You Win!");
@@ -431,12 +436,14 @@ $(document).ready(function() {
                 $("#sub-title").text("Click the Reset button to play again.");
                 
                 // disable submit and hint buttons
-                $("#submit", "#hint").prop("disabled", true);
+                $("#submit, #hint").prop("disabled", true);
 
             }
     
             // if player loses...
             else if(output === 'You Lose.') {
+
+                $("#main-title").css('color', 'blue');
 
                 // change main title text display to you lose
                 $("#main-title").text("You Lose.");
@@ -444,8 +451,8 @@ $(document).ready(function() {
                 // change sub title text display to reset
                 $("#sub-title").text("Click the Reset button to play again.");
 
-                // disable submit and hint button             
-                $("#submit", "#hint").prop("disabled", true);
+                // disable submit and hint buttons          
+                $("#submit, #hint").prop("disabled", true);
                 
             }
 
@@ -500,29 +507,38 @@ $(document).ready(function() {
         game = new Game();
 
         // change main title text back to default
-        $("#main-title").text("Play the Guessing Game");
+        $("#main-title").text("Play the Guessing Game").css('color','black');
 
         // change sub title text back to default
         $("#sub-title").text("Guess a number between 1 and 100");
 
-        // enable submit and hint buttons
-        $("#submit", "#hint").prop("disabled", false);
+        // clear value from #player-input field (if any exists)
+        $("#player-input").val("");
 
-            // change guess <li> elemnet back to dashes
-            $(".guess").text("—");
+        // enable submit and hint buttons
+        $("#submit, #hint").prop("disabled", false);
+
+        // change guess <li> elemnet back to dashes
+        $(".guess").text("—");
+
     }
 
     // invoke resetGame callback function with #reset button is clicked
     $("#reset").click(function() {
         resetGame();
     });
-
-    // generate hint array;
-    let hintArray = game.provideHint();
-
+   
     // when #hint button is clicked, display elements of hint array in main title
     $("#hint").click(function() {
+
+        // generate hint array;
+        let hintArray = game.provideHint();
+
+        // display hint array values in #main-title element
         $("#main-title").text("The winning number is " + hintArray[0] + ", " + hintArray[1] + ", or " + hintArray[2])
+
+        // disable hint button after one showing (no cheating)
+        $("#hint").prop("disabled", true);
     });
 
 })
