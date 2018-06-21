@@ -196,8 +196,6 @@ if playersGuess isn\'t the winningNumber or a duplicate, add it to pastGuesses
 
 */
 
-
-
 Game.prototype.checkGuess = function() {
 
     // returns "You Win!" if playersGuess equals winningNumber'
@@ -384,7 +382,7 @@ $(document).ready(function() {
         // clear value of input element
         $("#player-input").val("");
         
-        // pass guess to playres guess submission method and log returned string result
+        // pass guess to players guess submission method and log returned string result
         let output = game.playersGuessSubmission(guess);
 
         // console.log(output);
