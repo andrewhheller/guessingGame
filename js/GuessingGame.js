@@ -425,7 +425,7 @@ $(document).ready(function() {
             // if player wins...
             if(output === 'You Win!') {
 
-                $("#main-title").css('color', 'green');
+                $("#main-title").css('color', '#00FF00');
 
                 // change main title text display to you win
                 $("#main-title").text("You Win!");
@@ -505,10 +505,10 @@ $(document).ready(function() {
         game = new Game();
 
         // change main title text back to default
-        $("#main-title").text("Play the Guessing Game").css('color','black');
+        $("#main-title").text("Enter the code and escape the Matrix!").css('color', '#00FF00');
 
         // change sub title text back to default
-        $("#sub-title").text("Guess a number between 1 and 100");
+        $("#sub-title").text("Choose a number between 1 and 100").css('color', 'white');
 
         // clear value from #player-input field (if any exists)
         $("#player-input").val("");
