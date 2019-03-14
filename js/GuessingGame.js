@@ -498,7 +498,7 @@ $(document).ready(function() {
 
     // *** RESET GAME ***
 
-    // reste game callback function
+    // reset game callback function
     let resetGame = function() {
 
         // create new game instance

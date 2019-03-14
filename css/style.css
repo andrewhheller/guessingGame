@@ -6,7 +6,7 @@ html {
 
 body {
   margin-top: 50px;
-  background-image: url('../img/binary.jpg');
+  background-image: url('../img/matrix.jpg');
 }
 
 .center {
@@ -15,9 +15,10 @@ body {
 
 /* sets opacity for background image */
 #app {
-  width: 60%;
+  width: 75%;
+  height: 500px;
   margin: 35px auto;
-  background-color: rgba(256, 256, 256, 0.5);
+  background-color: rgba(256, 256, 256, 0.2);
 }
 
 /* HEADINGS */
@@ -25,7 +26,8 @@ body {
 #headers {
   height: 100px;
   width: 700px;
-  background-color: white;
+  background-color: #000000;
+  color: #00FF00;
   margin: auto;
 }
 
