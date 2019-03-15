@@ -9,10 +9,10 @@
 
 <p>Can you guess the correct code before he reaches you?!</p>
 
-<h3>Preview</h3>
-(link)
+<h3>Play Online</h3>
+https://andrewhheller.github.io/guessingGame/
 
-<h3>Installation Instructions</h3>
+<h3>Play on your Local Computer</h3>
 
 <ol>
   
