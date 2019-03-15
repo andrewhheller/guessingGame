@@ -8,3 +8,18 @@
 <strong>An agent is approaching!</strong>
 
 <p>Can you guess the correct code before he reaches you?!</p>
+
+<h3>Preview</h3>
+(link)
+
+<h3>Installation Instructions</h3>
+
+<ol>
+  
+  <li>open a terminal</li>
+  <li>navigate to desired directory</li>
+  <li>git clone https://github.com/andrewhheller/guessingGame</li>
+  <li>cd guessingGame</li>
+  <li>open index.html in your favorite browser!</li>
+
+</ol>
